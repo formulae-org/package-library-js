@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "R. Ugalde"
+  given-names: "Laurence"
+title: "Fōrmulæ module for library"
+version: 1.0
+doi: 10.5281/zenodo.17516575
+date-released: 2025-11-03
+url: "https://github.com/formulae-org/package-library-js"
