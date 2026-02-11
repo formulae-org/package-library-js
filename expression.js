@@ -84,7 +84,10 @@ Library.Entity = class extends Expression {
 	}
 	
 	prepareDisplay(context) {
-		if (!this.expanded) { // collapsed
+	
+		// collapsed
+		
+		if (!this.expanded) {
 			this.width = 10 + Math.round(context.measureText(this.name).width) + 10;
 			this.height = 10 + context.fontInfo.size + 10;
 			
@@ -135,6 +138,10 @@ Library.Entity = class extends Expression {
 		this.vertBaseline += 20;
 		
 		this.width = this.vertBaseline + this.width + 10;
+		
+		if (widthTitle > this.width) {
+			this.width = widthTitle;
+		}
 		
 		for (i = 0; i < n; ++i) {
 			this.children[i].x = this.vertBaseline;
@@ -291,11 +298,13 @@ Library.Book = class extends Library.ConcreteEntity {
 		super();
 		
 		this.specification = {
-			name: "Book",
+			name: "Libro",
 			attributes: [
-				{ name: "Title",           multiple: false, entity: null },
-				{ name: "Authors",         multiple: true,  entity: "Library.Book.Author" },
-				{ name: "Number of pages", multiple: false, entity: null }
+				{ name: "Título",             multiple: false, entity: "Library.Book.Title" },
+				{ name: "Autores",            multiple: true,  entity: "Library.Book.Author" },
+				{ name: "Edición",            multiple: false, entity: "Library.Book.Edition" },
+				{ name: "Publicación",        multiple: false, entity: "Library.Book.Publication" },
+				{ name: "Descripción física", multiple: false, entity: "Library.Book.PhysicalDescription" },
 			]
 		};
 	}
@@ -320,6 +329,32 @@ Library.Book = class extends Library.ConcreteEntity {
 	}
 };
 
+Library.Book.Title = class extends Library.ConcreteEntity {
+	getTag() {
+		return "Library.Book.Title";
+	}
+	
+	constructor() {
+		super();
+		
+		this.specification = {
+			name: "Título",
+			attributes: [
+				{ name: "Título individual",    multiple: false, entity: null },
+				{ name: "Títulos en colectivo", multiple: true,  entity: null },
+				{ name: "Título paralelo",      multiple: false, entity: null },
+				{ name: "Subtítulo",            multiple: false, entity: null },
+				{ name: "Título independiente", multiple: false, entity: null },
+				{ name: "Notas",                multiple: false, entity: null },
+			]
+		};
+	}
+	
+	validation() {
+		return true;
+	}
+};
+
 Library.Book.Author = class extends Library.ConcreteEntity {
 	getTag() {
 		return "Library.Book.Author";
@@ -329,10 +364,12 @@ Library.Book.Author = class extends Library.ConcreteEntity {
 		super();
 		
 		this.specification = {
-			name: "Author",
+			name: "Autor",
 			attributes: [
-				{ name: "Type",      multiple: false, entity: null },
-				{ name: "Full name", multiple: false, entity: null }
+				{ name: "Nombre",        multiple: false, entity: null },
+				{ name: "Tipo de autor", multiple: false, entity: null },
+				{ name: "Participación", multiple: false, entity: null },
+				{ name: "Notas",         multiple: false, entity: null },
 			]
 		};
 	}
@@ -354,6 +391,76 @@ Library.Book.Author = class extends Library.ConcreteEntity {
 		
 		this.error |= super.validation();
 		return this.error;
+	}
+};
+
+Library.Book.Edition = class extends Library.ConcreteEntity {
+	getTag() {
+		return "Library.Book.Edition";
+	}
+	
+	constructor() {
+		super();
+		
+		this.specification = {
+			name: "Edición",
+			attributes: [
+				{ name: "Nombre", multiple: false, entity: null },
+				{ name: "Notas",  multiple: false, entity: null },
+			]
+		};
+	}
+	
+	validation() {
+		return true;
+	}
+};
+
+Library.Book.Publication = class extends Library.ConcreteEntity {
+	getTag() {
+		return "Library.Book.Publication";
+	}
+	
+	constructor() {
+		super();
+		
+		this.specification = {
+			name: "Publicación",
+			attributes: [
+				{ name: "Lugar",  multiple: false, entity: null },
+				{ name: "Fecha",  multiple: false, entity: null },
+				{ name: "Notas",  multiple: false, entity: null },
+			]
+		};
+	}
+	
+	validation() {
+		return true;
+	}
+};
+
+Library.Book.PhysicalDescription = class extends Library.ConcreteEntity {
+	getTag() {
+		return "Library.Book.PhysicalDescription";
+	}
+	
+	constructor() {
+		super();
+		
+		this.specification = {
+			name: "Descripción física",
+			attributes: [
+				{ name: "Extensión",              multiple: false, entity: null },
+				{ name: "Ilustraciones",          multiple: false, entity: null },
+				{ name: "Formato y dimensiones",  multiple: false, entity: null },
+				{ name: "Material anejo",         multiple: false, entity: null },
+				{ name: "Notas",                  multiple: false, entity: null },
+			]
+		};
+	}
+	
+	validation() {
+		return true;
 	}
 };
 
@@ -482,15 +589,28 @@ Library.GetAttribute = class extends Expression.UnaryExpression {
 }
 
 Library.setExpressions = function(module) {
-	Formulae.setExpression(module, "Library.Book",        Library.Book);
-	Formulae.setExpression(module, "Library.Book.Author", Library.Book.Author);
+	Formulae.setExpression(module, "Library.Book",                     Library.Book);
+	Formulae.setExpression(module, "Library.Book.Title",               Library.Book.Title);
+	Formulae.setExpression(module, "Library.Book.Author",              Library.Book.Author);
+	Formulae.setExpression(module, "Library.Book.Edition",             Library.Book.Edition);
+	Formulae.setExpression(module, "Library.Book.Publication",         Library.Book.Publication);
+	Formulae.setExpression(module, "Library.Book.PhysicalDescription", Library.Book.PhysicalDescription);
 	
-	[ "Person", "Organization", "Pseudonym", "Anonymous" ].forEach(
+	[ "Persona", "Oganización", "Pseudónimo", "Anónimo" ].forEach(
 		tag => Formulae.setExpression(module, "Library.Book.Author.Type." + tag, {
 			clazz   : Expression.LabelExpression,
 			getTag  : () => "Library.Book.Author.Type." + tag,
 			getLabel: () => tag,
-			getName : () => tag + " author type"
+			getName : () => "Tipo de autor: " + tag
+		}
+	));
+	
+	[ "Escritor", "Traductor", "Editor", "Ilustrador" ].forEach(
+		tag => Formulae.setExpression(module, "Library.Book.Author.Participation." + tag, {
+			clazz   : Expression.LabelExpression,
+			getTag  : () => "Library.Book.Author.Participation." + tag,
+			getLabel: () => tag,
+			getName : () => "Participación como: " + tag
 		}
 	));
 	

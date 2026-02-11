@@ -78,27 +78,45 @@ Library.actionGetAttribute = {
 };
 
 Library.setEditions = function() {
-	Formulae.addEdition("Library.Book",        null, "Book",   () => editionEntity("Library.Book"));
-	Formulae.addEdition("Library.Book.Author", null, "Author", () => editionEntity("Library.Book.Author"));
+	Formulae.addEdition("Biblioteca.Libro",                    null, "Libro",              () => editionEntity("Library.Book"));
+	Formulae.addEdition("Biblioteca.Libro.Título",             null, "Título",             () => editionEntity("Library.Book.Title"));
+	Formulae.addEdition("Biblioteca.Libro.Autor",              null, "Autor",              () => editionEntity("Library.Book.Author"));
+	Formulae.addEdition("Biblioteca.Libro.Edición",            null, "Edición",            () => editionEntity("Library.Book.Edition"));
+	Formulae.addEdition("Biblioteca.Libro.Publicacion",        null, "Publicacion",        () => editionEntity("Library.Book.Publication"));
+	Formulae.addEdition("Biblioteca.Libro.Descripción física", null, "Descripción física", () => editionEntity("Library.Book.PhysicalDescription"));
 	
-	[ "Person", "Organization", "Pseudonym", "Anonymous" ].forEach(tag => {
+	[ "Persona", "Oganización", "Pseudónimo", "Anónimo" ].forEach(tag => {
 		Formulae.addEdition(
-			"Library.Book.Author.Type",
+			"Biblioteca.Libro.Autor.Tipo",
 			null,
 			tag,
 			() => Expression.replacingEdition("Library.Book.Author.Type." + tag)
 		)
 	});
 	
+	[ "Escritor", "Traductor", "Editor", "Ilustrador" ].forEach(tag => {
+		Formulae.addEdition(
+			"Biblioteca.Libro.Autor.Participación",
+			null,
+			tag,
+			() => Expression.replacingEdition("Library.Book.Author.Participation." + tag)
+		)
+	});
+	
 	// operations
 	
-	Formulae.addEdition("Library.Operations", null, "GetAttribute",   Library.editionGetAttribute);
-	Formulae.addEdition("Library.Operations", null, "ValidateEntity", () => Expression.wrapperEdition("Library.ValidateEntity"));
+	Formulae.addEdition("Biblioteca.Operaciones", null, "Attribute",             Library.editionGetAttribute);
+	Formulae.addEdition("Biblioteca.Operaciones", null, "Validación de entidad", () => Expression.wrapperEdition("Library.ValidateEntity"));
 };
 
 Library.setActions = function() {
-	Formulae.addAction("Library.Book",         Library.entityExpandCollapseAction);
-	Formulae.addAction("Library.Book.Author",  Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book",                     Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book.Title",               Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book.Author",              Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book.Edition",             Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book.Publication",         Library.entityExpandCollapseAction);
+	Formulae.addAction("Library.Book.PhysicalDescription", Library.entityExpandCollapseAction);
+	
 	Formulae.addAction("Library.GetAttribute", Library.actionGetAttribute);
 };
 
