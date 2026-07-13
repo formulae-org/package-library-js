@@ -1,0 +1,87 @@
+{
+	"pathBook"                    : "Biblioteca.Libro",
+	"pathBookTitle"               : "Biblioteca.Libro.Título",
+	"pathBookAuthor"              : "Biblioteca.Libro.Autor",
+	"pathBookEdition"             : "Biblioteca.Libro.Edición",
+	"pathBookPublication"         : "Biblioteca.Libro.Publicación",
+	"pathBookPhysicalDescription" : "Biblioteca.Libro.Descripción física",
+	"pathBookAuthorType"          : "Biblioteca.Libro.Autor.Tipo",
+	"pathBookAuthorParticipation" : "Biblioteca.Libro.Autor.Participación",
+	"pathOperations"              : "Biblioteca.Operaciones",
+
+	"leafBook"                    : "Libro",
+	"leafBookTitle"               : "Título",
+	"leafBookAuthor"              : "Autor",
+	"leafBookEdition"             : "Edición",
+	"leafBookPublication"         : "Publicación",
+	"leafBookPhysicalDescription" : "Descripción física",
+	"leafGetAttribute"            : "Atributo",
+	"leafValidateEntity"          : "Validación de entidad",
+
+	"leafAuthorTypePerson"       : "Persona",
+	"leafAuthorTypeOrganization" : "Organización",
+	"leafAuthorTypePseudonym"    : "Pseudónimo",
+	"leafAuthorTypeAnonymous"    : "Anónimo",
+
+	"leafParticipationWriter"      : "Escritor",
+	"leafParticipationTranslator"  : "Traductor",
+	"leafParticipationEditor"      : "Editor",
+	"leafParticipationIllustrator" : "Ilustrador",
+
+	"enterAttributeName" : "Introduzca el nombre del atributo",
+
+	"actionExpandCollapseEntity" : "Expandir/colapsar entidad",
+	"actionEditAttribute"        : "Editar nombre de atributo...",
+
+	"nameEntity"      : "Entidad de biblioteca",
+	"nameAttribute"   : "Atributo",
+	"nameGetAttribute": "Obtener atributo",
+
+	"nameAuthorTypePrefix"      : "Tipo de autor: ",
+	"nameParticipationPrefix"   : "Participación como: ",
+
+	"mnemonicValidateEntity" : "ValidarEntidad",
+	"nameValidateEntity"     : "Validar entidad",
+
+	"defaultEntityName"    : "Entidad X",
+	"defaultAttributeName" : "Atributo X",
+
+	"entityBook"                    : "Libro",
+	"entityBookTitle"               : "Título",
+	"entityBookAuthor"              : "Autor",
+	"entityBookEdition"             : "Edición",
+	"entityBookPublication"         : "Publicación",
+	"entityBookPhysicalDescription" : "Descripción física",
+
+	"attrBookTitle"               : "Título",
+	"attrBookAuthors"             : "Autores",
+	"attrBookEdition"             : "Edición",
+	"attrBookPublication"         : "Publicación",
+	"attrBookPhysicalDescription" : "Descripción física",
+
+	"attrTitleIndividual"   : "Título individual",
+	"attrTitleCollective"   : "Títulos en colectivo",
+	"attrTitleParallel"     : "Título paralelo",
+	"attrSubtitle"          : "Subtítulo",
+	"attrTitleIndependent"  : "Título independiente",
+
+	"attrName"           : "Nombre",
+	"attrAuthorType"     : "Tipo de autor",
+	"attrParticipation"  : "Participación",
+
+	"attrPlace" : "Lugar",
+	"attrDate"  : "Fecha",
+
+	"attrExtent"                 : "Extensión",
+	"attrIllustrations"          : "Ilustraciones",
+	"attrFormatAndDimensions"    : "Formato y dimensiones",
+	"attrAccompanyingMaterial"   : "Material anejo",
+
+	"attrNotes" : "Notas",
+
+	"errorMustBeString"     : "La expresión debe ser una cadena de caracteres",
+	"errorMustBeNumber"     : "La expresión debe ser un número",
+	"errorMustBeAuthorType" : "La expresión debe ser un tipo de autor",
+	"errorNotEntity"        : "La expresión no es una entidad",
+	"errorNoAttribute"      : "La entidad no contiene el atributo"
+}

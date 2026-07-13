@@ -1,0 +1,87 @@
+{
+	"pathBook"                    : "Library.Book",
+	"pathBookTitle"               : "Library.Book.Title",
+	"pathBookAuthor"              : "Library.Book.Author",
+	"pathBookEdition"             : "Library.Book.Edition",
+	"pathBookPublication"         : "Library.Book.Publication",
+	"pathBookPhysicalDescription" : "Library.Book.Physical description",
+	"pathBookAuthorType"          : "Library.Book.Author.Type",
+	"pathBookAuthorParticipation" : "Library.Book.Author.Participation",
+	"pathOperations"              : "Library.Operations",
+
+	"leafBook"                    : "Book",
+	"leafBookTitle"               : "Title",
+	"leafBookAuthor"              : "Author",
+	"leafBookEdition"             : "Edition",
+	"leafBookPublication"         : "Publication",
+	"leafBookPhysicalDescription" : "Physical description",
+	"leafGetAttribute"            : "Attribute",
+	"leafValidateEntity"          : "Validate entity",
+
+	"leafAuthorTypePerson"       : "Person",
+	"leafAuthorTypeOrganization" : "Organization",
+	"leafAuthorTypePseudonym"    : "Pseudonym",
+	"leafAuthorTypeAnonymous"    : "Anonymous",
+
+	"leafParticipationWriter"      : "Writer",
+	"leafParticipationTranslator"  : "Translator",
+	"leafParticipationEditor"      : "Editor",
+	"leafParticipationIllustrator" : "Illustrator",
+
+	"enterAttributeName" : "Enter attribute's name",
+
+	"actionExpandCollapseEntity" : "Expand/collapse entity",
+	"actionEditAttribute"        : "Edit attribute name...",
+
+	"nameEntity"      : "Library entity",
+	"nameAttribute"   : "Attribute",
+	"nameGetAttribute": "Get attribute",
+
+	"nameAuthorTypePrefix"      : "Author type: ",
+	"nameParticipationPrefix"   : "Participation as: ",
+
+	"mnemonicValidateEntity" : "ValidateEntity",
+	"nameValidateEntity"     : "Validate entity",
+
+	"defaultEntityName"    : "Entity X",
+	"defaultAttributeName" : "Attribute X",
+
+	"entityBook"                    : "Book",
+	"entityBookTitle"               : "Title",
+	"entityBookAuthor"              : "Author",
+	"entityBookEdition"             : "Edition",
+	"entityBookPublication"         : "Publication",
+	"entityBookPhysicalDescription" : "Physical description",
+
+	"attrBookTitle"               : "Title",
+	"attrBookAuthors"             : "Authors",
+	"attrBookEdition"             : "Edition",
+	"attrBookPublication"         : "Publication",
+	"attrBookPhysicalDescription" : "Physical description",
+
+	"attrTitleIndividual"   : "Individual title",
+	"attrTitleCollective"   : "Titles in collective work",
+	"attrTitleParallel"     : "Parallel title",
+	"attrSubtitle"          : "Subtitle",
+	"attrTitleIndependent"  : "Independent title",
+
+	"attrName"           : "Name",
+	"attrAuthorType"     : "Author type",
+	"attrParticipation"  : "Participation",
+
+	"attrPlace" : "Place",
+	"attrDate"  : "Date",
+
+	"attrExtent"                 : "Extent",
+	"attrIllustrations"          : "Illustrations",
+	"attrFormatAndDimensions"    : "Format and dimensions",
+	"attrAccompanyingMaterial"   : "Accompanying material",
+
+	"attrNotes" : "Notes",
+
+	"errorMustBeString"     : "Expression must be a string",
+	"errorMustBeNumber"     : "Expression must be a number",
+	"errorMustBeAuthorType" : "Expression must be an author type",
+	"errorNotEntity"        : "Expression is not an entity",
+	"errorNoAttribute"      : "Entity does not contain the attribute"
+}

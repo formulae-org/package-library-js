@@ -23,7 +23,7 @@ export class Library extends Formulae.Package {}
 const getAttribute = async (getAttribute, session) => {
 	let entity = getAttribute.children[0];
 	if (!("specification" in entity)) {
-		ReductionManager.setInError(entity, "Expression is not an entity");
+		ReductionManager.setInError(entity, Library.messages.errorNotEntity);
 		throw new ReductionError();
 	}
 	
@@ -43,7 +43,7 @@ const getAttribute = async (getAttribute, session) => {
 	}
 	
 	if (attribute === null) {
-		ReductionManager.setInError(entity, "Entity does not contain the attribute");
+		ReductionManager.setInError(entity, Library.messages.errorNoAttribute);
 		throw new ReductionError();
 	}
 	
@@ -54,7 +54,7 @@ const getAttribute = async (getAttribute, session) => {
 const validateEntity = async (validateEntity, session) => {
 	let entity = validateEntity.children[0];
 	if (!("specification" in entity)) {
-		ReductionManager.setInError(entity, "Expression is not an entity");
+		ReductionManager.setInError(entity, Library.messages.errorNotEntity);
 		throw new ReductionError();
 	}
 	
