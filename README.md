@@ -2,7 +2,7 @@
 
 # package-library-js
 
-Library and bibliographic expressions for [Fōrmulæ](https://formulae.org) — the visual environment for **computing**, **composing**, and **conversing** with tree-structured expressions.
+Library and bibliographic expressions for [Fōrmulæ](https://formulae.org) — the visual environment for **composing**, **conversing**, and **computing** with tree-structured expressions.
 
 This repository contains the **library package**: expressions for modelling bibliographic entries — books, authors and typed attributes (`Library.Book`, `Library.Attribute`, `Library.GetAttribute`).
 
